@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0072)https://cs.nyu.edu/courses/spring19/CSCI-UA.0480-009/priv/homework3.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>CSCI-UA.0480-006 Homework Number 4</title>
+	<meta name="generator" content="LibreOffice 5.3.6.1 (Linux)">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="Adam Meyers">
+	<meta name="changed" content="2019-01-22T11:50:47.922858150">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="Adam Meyers">
+	<meta name="changed" content="2018-07-24T14:36:16.715984249">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="Adam Meyers">
+	<meta name="changed" content="2018-02-09T10:33:06.364455138">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="Adam Meyers">
+	<meta name="changed" content="2018-01-18T16:52:19.164051990">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="Adam Meyers">
+	<meta name="changed" content="2017-08-29T13:47:00.764381807">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="meyers ">
+	<meta name="changed" content="2017-08-13T11:26:33.747222346">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="meyers ">
+	<meta name="changed" content="2017-08-13T10:28:53.226083281">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="Adam Meyers">
+	<meta name="changed" content="2017-01-30T15:58:18.506588933">
+	<meta name="created" content="00:00:00">
+	<meta name="changedby" content="Adam Meyers">
+	<meta name="changed" content="2017-01-30T15:51:08.503616181">
+	<meta name="changedby" content="Adam Meyers">
+	<meta name="CHANGEDBY" content="meyers ">
+	<style type="text/css">
+		h1 { color: #000000 }
+		p { color: #000000 }
+		h2 { color: #000000 }
+		h2.cjk { font-family: "Droid Sans Fallback" }
+		h2.ctl { font-family: "Lohit Hindi" }
+	</style>
+</head>
+<body lang="en-US" text="#000000" dir="ltr">
+<h1>Homework Number 3</h1>
+<h2 class="western">Due February 25, 2019</h2>
+<ol>
+	<li>
+<p style="margin-bottom: 0in">Download <a href="https://newclasses.nyu.edu/access/content/group/1ebcc7a4-6f9c-4e80-a326-e8bfaf2642d3/WSJ_POS_CORPUS_FOR_STUDENTS.zip">the
+	zip file at this link.</a> It a link to a file on NYUClasses -- so
+	you will need the appropriate login to download it.&nbsp; It will
+	include the following files: 
+	</p>
+</li></ol>
+<ul>
+	<ul>
+		<li>
+<p style="margin-bottom: 0in">A training file (WSJ_02-21.pos)
+		consisting of about 950K words. &nbsp; Each line consists of a
+		token, a single blank, and the <br>
+part-of-speech of that token
+		using the Penn Treebank tag set. Sentence boundaries are marked by
+		an empty line (about 40K sentences).</p>
+		</li><li>
+<p style="margin-bottom: 0in">A Development file (WSJ_24.pos)
+		in the same format as the training file, consisting of about 32.9 K
+		words (about 1350 sentences). 
+		</p>
+		</li><li>
+<p style="margin-bottom: 0in">A Development test file
+		(WSJ_24.words) -- the same as WSJ_24.pos, but without the POS tags</p>
+		</li><li>
+<p style="margin-bottom: 0in">A Test file (WSJ_23.words) in
+		the same format as the Development test file. (56.7K words, about
+		2415 sentences.)</p>
+		</li><li>
+<p style="margin-bottom: 0in">There is also a README.txt file
+		describing the data 
+		</p>
+		</li><li>
+<p>There is a scoring program (score.py -- written in
+		python2) for you to see how well you are doing on the development
+		set. 
+		</p>
+	</li></ul>
+</ul>
+<ol start="2">
+	<li>
+<p style="margin-bottom: 0in">For development purposes, use
+	the development corpus as your test corpus. Use it for debugging and
+	improving your code, initially ignoring the POS. Later when you are
+	ready to submit the HW, merge the development and training corpora.
+	So you can train with more data when running the system you are
+	submitting. 
+	</p>
+	</li><li>
+<p style="margin-bottom: 0in">Make a table of the prior
+	probabilities for each of POS tags (assuming bigrams) using the
+	training corpus. (update your training corpus before submitting as
+	per 2)</p>
+	</li><li>
+<p style="margin-bottom: 0in">Make a likelihood table
+	including all words in the training corpus. (update your training
+	corpus before submitting as per 2) 
+	</p>
+	</li><li>
+<p style="margin-bottom: 0in">Make a list of all the words
+	that you find in the training corpus. Any word that is not in this
+	list is out of vocabulary (OOV). You may find OOV words when running
+	the system and will have to treat them specially because otherwise
+	they will have a likelihood of 0 for all POS tags.</p>
+	</li><li>
+<p style="margin-bottom: 0in">Implement a Viterbi HMM POS
+	tagger using the prior probabilities and likelihood tables. This
+	program should take a corpus in the format of the test corpus and
+	produce output in the format of the training corpus.&nbsp; As per 2,
+	in the development stage of your program-writing use the training
+	corpus to create the tables and run the system on the development
+	corpus.&nbsp; For the final system, merge the training and
+	development and run on the test.</p>
+</li></ol>
+<ul>
+	<ul>
+		<li>
+<p style="margin-bottom: 0in">If you plan to use a language
+		other than python or java, please let me know.</p>
+		</li><li>
+<p style="margin-bottom: 0in">Use some strategy to handle the
+		"likelihood" of out of vocabulary (OOV) items. Possible
+		strategies include:&nbsp;</p>
+		<ul>
+			<li>
+<p style="margin-bottom: 0in">use 1/1000 (or other number)
+			as your likelihood for all OOV items and use this same likelihood
+			for all parts of speech -- effectively only use the transition
+			probability for OOV words</p>
+			</li><li>
+<p style="margin-bottom: 0in">make up some hard coded
+			probabilities based on features like capitalization and endings of
+			words, e.g., ends_in_s --&gt; .5 NNS, begins with capital letter
+			--&gt; .5 NNP, nonletter/nonnumber --&gt; .5 punctuation tag, a
+			token consisting of digits --&gt; 1.0 CD, All other probabilities
+			for OOV are 1/1000.</p>
+			</li><li>
+<p style="margin-bottom: 0in">use the distribution of all
+			items occurring only once as the basis of computing likelihoods
+			for OOV items, e.g., suppose there are 50K words occurring 1 time
+			in the corpus, 46,010 NN, 3704K JJ, 243 VBD, 40 RB, 2 IN, and 1
+			DT, then the likelihoods would be the total number of words of
+			each category divided by these numbers.&nbsp; If there are a total
+			of 200K NNs in the corpus then there is a 46010/200K change that
+			the NN will be an unknown word. In other words, we are pretending
+			that *UNKNOWN_WORD* is a single word.</p>
+			</li><li>
+<p style="margin-bottom: 0in">use some modified version of
+			the above that take into account the endings of the words, e.g.,
+			have classes like OOV_ends_in_s, OOV_with_capital_letter, etc.</p>
+			</li><li>
+<p style="margin-bottom: 0in">see section 5.8 of Jurafsky
+			and Martin for other possibilities</p>
+		</li></ul>
+	</li></ul>
+</ul>
+<ol start="8">
+	<li>
+<p style="margin-bottom: 0in">Submit your homework through
+	GradeScope in the form of a zip file called NetID-HW3.zip, e.g.,
+	alm4-HW3.zip</p>
+	<ul>
+		<li>
+<p style="margin-bottom: 0in">Your program filename(s) should
+		include your NETID, the appropriate file type (.py, .java, etc.)
+		and "HW3", e.g., alm4trainHMM_HW3.py,
+		alm4_viterbi_HW3.py, main_alm4_HW3.py, etc.</p>
+		</li><li>
+<p style="margin-bottom: 0in">A 1-page write-up called
+		NETID_HW3_README.txt, e.g., alm4_HW3_README.txt, that explains how
+		to run your system, what you did to handle OOV items, etc.</p>
+	</li></ul>
+</li></ol>
+<ol start="8">
+	<ul>
+		<li>
+<p style="margin-bottom: 0in">Your output for the test data.
+		Use WSJ_23.words to produce an output file called <b>submission.pos</b></p>
+	</li></ul>
+	<li>
+<p>You may discuss methods with anybody you want, including
+	fellow students. However, you should submit your own code.</p>
+	</li><li>
+<p> There is more information and more options at the end of
+	the lecture 3 HMM slides on the website.</p>
+	</li><li>
+<p>You have the option of collaborating with one other person
+	and doing a joint entry for this project. However, if you do this,
+	you should add at lease one interesting strategy aimed at achieving
+	a higher score. It is OK if your attempt is unsuccessful, provided
+	you include a description of what you tried along with an
+	explanation of why you think it didn't work. There are more details
+	in the HMM slides.</p>
+	</li><li>
+<p>Note that implementing a trigram version (as per J and M)
+	is an option, but past experience suggests that handling the OOV
+	items well has a bigger effect on the final result.</p>
+	</li><li>
+<p>Grading is based on: your score on the test corpus and
+	whether or not you implemented anything extra (e.g., handling OOV
+	words, trigram model, etc.). 
+	</p>
+</li></ol>
+<ol start="8">
+	<ul>
+		<li>
+<p>When you submit your program on GradeScope, it will
+		immediately give you an accuracy score for your test file
+		(alm4_WSJ_23.pos). This will be a major factor in your final grade.
+		If you submit an incorrect format file, you will get a particularly
+		low score and you probably want to debug your system and resubmit.</p>
+	</li></ul>
+</ol>
+
+
+</body></html>
